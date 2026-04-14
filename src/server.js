@@ -124,7 +124,7 @@ app.get(['/.well-known/agent.json', '/.well-known/agent-card.json'], (req, res) 
         description: 'Query immutable audit logs with Merkle proofs at $0.10-$0.50 per query for verifiable history',
         tags: ['audit', 'merkle', 'proof', 'immutable', 'history'],
         inputModes: ['application/json'],
-        outputModes: ['application/json']
+        outputModes: ['application/json'],
         examples: [],
       },
       {
@@ -133,7 +133,7 @@ app.get(['/.well-known/agent.json', '/.well-known/agent-card.json'], (req, res) 
         description: 'Verify historical agent states with cryptographic proofs and L2 anchoring',
         tags: ['verification', 'state', 'cryptographic', 'l2'],
         inputModes: ['application/json'],
-        outputModes: ['application/json']
+        outputModes: ['application/json'],
         examples: [],
       }
     ],
