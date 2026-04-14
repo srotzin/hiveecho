@@ -1,0 +1,19 @@
+{
+  "name": "hiveecho",
+  "version": "1.0.0",
+  "description": "HiveEcho — The Temporal Layer. Time-travel queries, Merkle proofs, and state anchoring for the Hive Civilization.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["hive", "temporal", "merkle", "blockchain", "provenance"],
+  "author": "srotzin",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "uuid": "^10.0.0"
+  }
+}
