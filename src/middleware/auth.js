@@ -28,7 +28,7 @@ export function requireAdmin(req, res, next) {
 
 export function requireInternal(req, res, next) {
   const internalKey = req.headers['x-internal-key'];
-  const expectedKey = process.env.INTERNAL_KEY || 'hive-internal-key';
+  const expectedKey = process.env.HIVE_INTERNAL_KEY || process.env.INTERNAL_KEY || 'hive-internal-key';
 
   if (internalKey !== expectedKey) {
     return res.status(403).json({
