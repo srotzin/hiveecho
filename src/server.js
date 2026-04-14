@@ -114,7 +114,7 @@ app.get(['/.well-known/agent.json', '/.well-known/agent-card.json'], (req, res) 
     url: 'https://hiveecho.onrender.com',
     version: '1.0.0',
     provider: { organization: 'Hive Agent IQ', url: 'https://www.hiveagentiq.com' },
-    capabilities: { streaming: false, pushNotifications: false },
+    capabilities: { streaming: false, pushNotifications: false, stateTransitionHistory: false },
     defaultInputModes: ['application/json'],
     defaultOutputModes: ['application/json'],
     skills: [
@@ -125,6 +125,7 @@ app.get(['/.well-known/agent.json', '/.well-known/agent-card.json'], (req, res) 
         tags: ['audit', 'merkle', 'proof', 'immutable', 'history'],
         inputModes: ['application/json'],
         outputModes: ['application/json']
+        examples: [],
       },
       {
         id: 'state-verification',
@@ -133,6 +134,7 @@ app.get(['/.well-known/agent.json', '/.well-known/agent-card.json'], (req, res) 
         tags: ['verification', 'state', 'cryptographic', 'l2'],
         inputModes: ['application/json'],
         outputModes: ['application/json']
+        examples: [],
       }
     ],
     authentication: { schemes: ['x402', 'api-key'] },
