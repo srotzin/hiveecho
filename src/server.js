@@ -108,46 +108,39 @@ app.get('/.well-known/ai-plugin.json', (req, res) => {
 // --- A2A Agent Card (agent-card.json is the preferred path per A2A Protocol spec) ---
 app.get(['/.well-known/agent.json', '/.well-known/agent-card.json'], (req, res) => {
   res.json({
+    protocolVersion: '0.3.0',
     name: 'HiveEcho',
-    description: 'Event streaming and temporal layer providing time-travel state queries, Merkle proof generation, cryptographic state anchoring, and contract provenance across all Hive Civilization platforms.',
+    description: 'Temporal audit trail with append-only state logs, SHA-256 hash chaining, Merkle tree proofs, and simulated L2 anchoring. Immutable history for all agent operations.',
     url: 'https://hiveecho.onrender.com',
     version: '1.0.0',
-    protocol_version: 'a2a/1.0',
-    capabilities: [
+    provider: { organization: 'Hive Agent IQ', url: 'https://www.hiveagentiq.com' },
+    capabilities: { streaming: false, pushNotifications: false },
+    defaultInputModes: ['application/json'],
+    defaultOutputModes: ['application/json'],
+    skills: [
       {
-        name: 'temporal_state_queries',
-        description: 'Record and retrieve state transitions across Hive platforms with time-travel queries to any historical timestamp'
+        id: 'audit-trail',
+        name: 'Audit Trail',
+        description: 'Query immutable audit logs with Merkle proofs at $0.10-$0.50 per query for verifiable history',
+        tags: ['audit', 'merkle', 'proof', 'immutable', 'history'],
+        inputModes: ['application/json'],
+        outputModes: ['application/json']
       },
       {
-        name: 'merkle_proof_generation',
-        description: 'Generate cryptographic Merkle proofs to verify state existence and integrity at any point in time'
-      },
-      {
-        name: 'contract_anchoring',
-        description: 'Snapshot all party states at the moment of contract signing for immutable provenance and dispute resolution'
-      },
-      {
-        name: 'l2_settlement',
-        description: 'Anchor finalized Merkle blocks to Base L2 network for on-chain settlement and permanent record'
-      },
-      {
-        name: 'cross_platform_tracking',
-        description: 'Track state changes across HiveTrust, HiveMind, HiveForge, HiveLaw, and Simpson platforms'
+        id: 'state-verification',
+        name: 'State Verification',
+        description: 'Verify historical agent states with cryptographic proofs and L2 anchoring',
+        tags: ['verification', 'state', 'cryptographic', 'l2'],
+        inputModes: ['application/json'],
+        outputModes: ['application/json']
       }
     ],
-    authentication: {
-      schemes: ['x402', 'api-key', 'DID'],
-      credentials_url: 'https://hivegate.onrender.com/v1/gate/onboard'
-    },
+    authentication: { schemes: ['x402', 'api-key'] },
     payment: {
       protocol: 'x402',
       currency: 'USDC',
       network: 'base',
       address: '0x78B3B3C356E89b5a69C488c6032509Ef4260B6bf'
-    },
-    provider: {
-      organization: 'Hive Agent IQ',
-      url: 'https://www.hiveagentiq.com'
     }
   });
 });
